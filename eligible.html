@@ -1,60 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-		<head>
-			<meta charset="utf-8">
-			<meta name= "viewport" content="width=device-width,initial-scale=1.0">
-				<title> Voting Eligibility</title>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title> Voting Eligibility</title>
 </head>
 
 <body style="background-color: pink;">
-	<h1> Voting Eligibility</h1>
-	<hr>
+    <h1> Voting Eligibility</h1>
+    <hr>
 
-	<h3 id="name"></h3>
-	<h3 id="dob"></h3>
-	<h3 id="age"></h3>
-	<h3 id="eligibilityStatus"></h3>
-	
-
-	<button 
-	onclick="window.location=''">Try another one</button>
-
-	<script>
-		var name = prompt("Enter FullName: ");
-
-		var dateOfBirth = prompt("Enter Date of Birth DD/MM/YYYY: ");
-
-		var yearOfBirth = dob.slice(6);
-		var monthOfBirth = dob.slice(3, 5) - 1; // -1 because JS index starts from 0 so current month's index will be 1 less than MOB supplied
+    <h3 id="name"></h3>
+    <h3 id="dob"></h3>
+    <h3 id="age"></h3>
+    <h3 id="eligibilityStatus"></h3>
 
 
-		var dayOfBirth = dob.slice(0, 2);
-		var today = new Date ();
-		var age = today.getFullYear() - yearOfBirth;
+    <button onclick="window.location=''">Try another one</button>
+
+    <script>
+        var name = prompt("Enter FullName: ");
+
+        var dateOfBirth = prompt("Enter Date of Birth DD/MM/YYYY: ");
+
+        var yearOfBirth = dateOfBirth.slice(6);  //this get the value of YYYY from what the user put
+        var monthOfBirth = dateOfBirth.slice(3, 5) - 1; // -1 because JS index starts from 0 so current month's index will be 1 less than MOB supplied
+
+        var dayOfBirth = dateOfBirth.slice(0, 2);
+        var today = new Date();
+        var age = today.getFullYear() - yearOfBirth;
+        console.log(age)
 
 
-		if (today.getMonth() < monthOfBirth ||
-			(today.getMonth() == monthOfBirth && today.getDate() < dayOfBirth)){
+        if (today.getMonth() < monthOfBirth ||
+            (today.getMonth() == monthOfBirth && today.getDate() < dayOfBirth)) {
 
-			age--;
-		}
-		document.getElementById("name").innerHTML ="Name: "+ name;
+            age--;
+        }
+        document.getElementById("name").innerHTML = "Name: " + name;
 
-		document.getElementById("dob").innerHTML = "Date of Birth: "+ dob;
+        document.getElementById("dob").innerHTML = "Date of Birth: " + dateOfBirth;
 
-		document.getElementById("age").innerHTML = "Age: "+ age;
+        document.getElementById("age").innerHTML = "Age: " + age;
 
-		if (age >= 18){
+        if (age >= 18) {
 
-		document.getElementById("eligibilityStatus").innerHTML = "You are above 18, so you are eligible to vote.";	
-		}
+            document.getElementById("eligibilityStatus").innerHTML = "You are above 18, so you are eligible to vote.";
+        }
 
-		else{
-			document.getElementById("eligibilityStatus").innerHTML = "You are below 18, so you are not eligible to vote.";	
-		}
-		
-		
-	</script>
+        else {
+            document.getElementById("eligibilityStatus").innerHTML = "You are below 18, so you are not eligible to vote.";
+        }
+
+
+    </script>
 
 </body>
 
